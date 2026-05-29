@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Links Profile - Аліна Яричівська</title>
+    <style>
+        /* ==================== VARIABLES ==================== */
+        :root {
+            --clr-bg: #0f1419;
+            --clr-card-bg: #1a1f2e;
+            --clr-text-primary: #ffffff;
+            --clr-text-secondary: #c4c9db;
+            --clr-accent-green: #00d084;
+            --clr-accent-purple: #7d5aed;
+            --clr-accent-red: #ff5757;
+            --clr-accent-yellow: #fcd34d;
+            --clr-accent-blue: #3b82f6;
+            --clr-focus: #00d084;
+            --clr-hover-overlay: rgba(0, 208, 132, 0.1);
+            
+            --ff-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            
+            --fs-sm: 0.875rem;
+            --fs-base: 1rem;
+            --fs-lg: 1.25rem;
+            --fs-xl: 1.5rem;
+            --fs-2xl: 2rem;
+            
+            --fw-regular: 400;
+            --fw-medium: 500;
+            --fw-semibold: 600;
+            --fw-bold: 700;
+            
+            --spacing-xs: 0.25rem;
+            --spacing-sm: 0.5rem;
+            --spacing-md: 1rem;
+            --spacing-lg: 1.5rem;
+            --spacing-xl: 2rem;
+            --spacing-2xl: 3rem;
+            
+            --br-sm: 0.375rem;
+            --br-md: 0.5rem;
+            --br-lg: 1rem;
+            --br-full: 9999px;
+            
+            --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.3);
+            
+            --transition-fast: 150ms ease-in-out;
+            --transition-base: 250ms ease-in-out;
+            --transition-slow: 350ms ease-in-out;
+        }
+
+        /* ==================== RESET ==================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--ff-primary);
+            background-color: var(--clr-bg);
+            color: var(--clr-text-primary);
+            font-size: var(--fs-base);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: var(--spacing-md);
+        }
+
+        /* ==================== LAYOUT ==================== */
+        .container {
+            width: 100%;
+            max-width: 600px;
+        }
+
+        .profile-card {
+            background: linear-gradient(135deg, var(--clr-card-bg) 0%, rgba(125, 90, 237, 0.1) 100%);
+            border-radius: var(--br-lg);
+            padding: var(--spacing-2xl) var(--spacing-xl);
+            box-shadow: var(--shadow-lg);
+            animation: slideIn 0.6s ease-out;
+            border: 1px solid rgba(125, 90, 237, 0.2);
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ==================== AVATAR ==================== */
+        .avatar-container {
+            text-align: center;
+            margin-bottom: var(--spacing-2xl);
+        }
+
+        .avatar {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto var(--spacing-lg);
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--clr-accent-purple), var(--clr-accent-green));
+            box-shadow: 0 0 30px rgba(0, 208, 132, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            transition: transform var(--transition-base);
+        }
+
+        .avatar:hover {
+            transform: scale(1.05);
+        }
+
+        .profile-name {
+            font-size: var(--fs-2xl);
+            font-weight: var(--fw-bold);
+            margin-bottom: var(--spacing-xs);
+            letter-spacing: -0.5px;
+        }
+
+        .profile-username {
+            font-size: var(--fs-base);
+            color: var(--clr-text-secondary);
+            font-weight: var(--fw-regular);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .profile-bio {
+            font-size: var(--fs-sm);
+            color: var(--clr-text-secondary);
+            margin-bottom: var(--spacing-lg);
+            line-height: 1.7;
+        }
+
+        /* ==================== STATS ==================== */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-2xl);
+            padding: var(--spacing-lg);
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: var(--br-md);
+            border: 1px solid rgba(0, 208, 132, 0.1);
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: var(--fs-xl);
+            font-weight: var(--fw-bold);
+            color: var(--clr-accent-green);
+            display: block;
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .stat-label {
+            font-size: var(--fs-sm);
+            color: var(--clr-text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: var(--fw-medium);
+        }
+
+        /* ==================== SOCIAL LINKS ==================== */
+        .social-links {
+            margin-bottom: var(--spacing-2xl);
+        }
+
+        .social-links-title {
+            font-size: var(--fs-sm);
+            color: var(--clr-text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: var(--fw-semibold);
+            margin-bottom: var(--spacing-lg);
+            display: block;
+        }
+
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            gap: var(--spacing-md);
+        }
+
+        .social-btn {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: var(--spacing-lg);
+            background: rgba(0, 208, 132, 0.1);
+            border: 2px solid var(--clr-accent-green);
+            border-radius: var(--br-md);
+            color: var(--clr-accent-green);
+            text-decoration: none;
+            font-weight: var(--fw-semibold);
+            font-size: var(--fs-sm);
+            cursor: pointer;
+            transition: all var(--transition-base);
+            position: relative;
+            overflow: hidden;
+            outline: none;
+            gap: var(--spacing-sm);
+        }
+
+        .social-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--clr-hover-overlay);
+            transition: left var(--transition-base);
+            z-index: -1;
+        }
+
+        .social-btn:hover {
+            transform: translateY(-4px);
+            background: var(--clr-accent-green);
+            color: var(--clr-bg);
+            box-shadow: 0 10px 20px rgba(0, 208, 132, 0.3);
+            letter-spacing: 0.5px;
+        }
+
+        .social-btn:hover::before {
+            left: 0;
+        }
+
+        .social-btn:focus-visible {
+            outline: 3px solid var(--clr-accent-green);
+            outline-offset: 2px;
+        }
+
+        .social-btn:active {
+            transform: translateY(-2px);
+        }
+
+        .social-icon {
+            font-size: 1.5rem;
+        }
+
+        .social-name {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+        }
+
+        /* Individual social colors */
+        .social-btn.facebook {
+            border-color: #1877F2;
+            color: #1877F2;
+            background: rgba(24, 119, 242, 0.1);
+        }
+
+        .social-btn.facebook:hover {
+            background: #1877F2;
+            color: white;
+            box-shadow: 0 10px 20px rgba(24, 119, 242, 0.3);
+        }
+
+        .social-btn.twitter {
+            border-color: #1DA1F2;
+            color: #1DA1F2;
+            background: rgba(29, 161, 242, 0.1);
+        }
+
+        .social-btn.twitter:hover {
+            background: #1DA1F2;
+            color: white;
+            box-shadow: 0 10px 20px rgba(29, 161, 242, 0.3);
+        }
+
+        .social-btn.instagram {
+            border-color: #E4405F;
+            color: #E4405F;
+            background: rgba(228, 64, 95, 0.1);
+        }
+
+        .social-btn.instagram:hover {
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+            color: white;
+            box-shadow: 0 10px 20px rgba(228, 64, 95, 0.3);
+            border-color: transparent;
+        }
+
+        .social-btn.linkedin {
+            border-color: #0A66C2;
+            color: #0A66C2;
+            background: rgba(10, 102, 194, 0.1);
+        }
+
+        .social-btn.linkedin:hover {
+            background: #0A66C2;
+            color: white;
+            box-shadow: 0 10px 20px rgba(10, 102, 194, 0.3);
+        }
+
+        .social-btn.github {
+            border-color: #333;
+            color: #999;
+            background: rgba(51, 51, 51, 0.1);
+        }
+
+        .social-btn.github:hover {
+            background: #333;
+            color: white;
+            box-shadow: 0 10px 20px rgba(51, 51, 51, 0.3);
+            border-color: #333;
+        }
+
+        /* ==================== ACTION BUTTONS ==================== */
+        .action-buttons {
+            display: flex;
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-2xl);
+        }
+
+        .btn {
+            flex: 1;
+            padding: var(--spacing-md) var(--spacing-lg);
+            border: 2px solid var(--clr-accent-green);
+            border-radius: var(--br-md);
+            font-size: var(--fs-base);
+            font-weight: var(--fw-semibold);
+            cursor: pointer;
+            transition: all var(--transition-base);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            outline: none;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            transform: translate(-50%, -50%);
+            transition: width var(--transition-base), height var(--transition-base);
+        }
+
+        .btn:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .btn-primary {
+            background: var(--clr-accent-green);
+            color: var(--clr-bg);
+        }
+
+        .btn-primary:hover {
+            box-shadow: 0 10px 25px rgba(0, 208, 132, 0.4);
+            transform: translateY(-2px);
+            letter-spacing: 1px;
+        }
+
+        .btn-primary:focus-visible {
+            outline: 3px solid var(--clr-accent-green);
+            outline-offset: 2px;
+        }
+
+        .btn-primary:active {
+            transform: translateY(0);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--clr-accent-green);
+        }
+
+        .btn-secondary:hover {
+            background: var(--clr-accent-green);
+            color: var(--clr-bg);
+            box-shadow: 0 10px 25px rgba(0, 208, 132, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary:focus-visible {
+            outline: 3px solid var(--clr-accent-green);
+            outline-offset: 2px;
+        }
+
+        .btn-secondary:active {
+            transform: translateY(0);
+        }
+
+        /* ==================== ABOUT SECTION ==================== */
+        .about-section {
+            margin-top: var(--spacing-2xl);
+            padding-top: var(--spacing-xl);
+            border-top: 1px solid rgba(0, 208, 132, 0.2);
+        }
+
+        .section-title {
+            font-size: var(--fs-base);
+            font-weight: var(--fw-semibold);
+            color: var(--clr-accent-green);
+            margin-bottom: var(--spacing-lg);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .info-list {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-md);
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-md);
+            color: var(--clr-text-secondary);
+            font-size: var(--fs-sm);
+            transition: all var(--transition-fast);
+            padding: var(--spacing-sm);
+            border-radius: var(--br-sm);
+        }
+
+        .info-item:hover {
+            color: var(--clr-text-primary);
+            background: rgba(0, 208, 132, 0.05);
+            padding-left: var(--spacing-lg);
+        }
+
+        .info-icon {
+            color: var(--clr-accent-green);
+            font-size: var(--fs-lg);
+            min-width: 24px;
+        }
+
+        .info-item a {
+            color: var(--clr-accent-green);
+            text-decoration: none;
+            transition: all var(--transition-fast);
+            border-bottom: 1px solid transparent;
+        }
+
+        .info-item a:hover {
+            text-decoration: underline;
+            border-bottom-color: var(--clr-accent-green);
+        }
+
+        .info-item a:focus-visible {
+            outline: 2px solid var(--clr-accent-green);
+            outline-offset: 2px;
+            border-radius: 2px;
+        }
+
+        /* ==================== SKILLS ==================== */
+        .skills-section {
+            margin-top: var(--spacing-2xl);
+            padding-top: var(--spacing-xl);
+            border-top: 1px solid rgba(0, 208, 132, 0.2);
+        }
+
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--spacing-md);
+        }
+
+        .skill-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            background: rgba(0, 208, 132, 0.15);
+            color: var(--clr-accent-green);
+            padding: var(--spacing-sm) var(--spacing-lg);
+            border-radius: var(--br-full);
+            font-size: var(--fs-sm);
+            font-weight: var(--fw-medium);
+            border: 1px solid rgba(0, 208, 132, 0.3);
+            transition: all var(--transition-base);
+            cursor: default;
+        }
+
+        .skill-badge:hover {
+            background: rgba(0, 208, 132, 0.25);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 208, 132, 0.2);
+            border-color: var(--clr-accent-green);
+        }
+
+        /* ==================== RESPONSIVE ==================== */
+        @media (max-width: 480px) {
+            .profile-card {
+                padding: var(--spacing-xl) var(--spacing-md);
+            }
+
+            .avatar {
+                width: 80px;
+                height: 80px;
+                font-size: 2.5rem;
+            }
+
+            .profile-name {
+                font-size: var(--fs-xl);
+            }
+
+            .links-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .action-buttons {
+                flex-direction: column;
+            }
+
+            .stats {
+                grid-template-columns: repeat(3, 1fr);
+                padding: var(--spacing-md);
+                gap: var(--spacing-sm);
+            }
+
+            .stat-number {
+                font-size: var(--fs-lg);
+            }
+
+            .stat-label {
+                font-size: 0.625rem;
+            }
+        }
+
+        /* ==================== ACCESSIBILITY ==================== */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
+
+        @media (prefers-color-scheme: light) {
+            :root {
+                --clr-bg: #f8f9fa;
+                --clr-card-bg: #ffffff;
+                --clr-text-primary: #1a1f2e;
+                --clr-text-secondary: #666778;
+            }
+
+            .profile-card {
+                border-color: rgba(125, 90, 237, 0.3);
+            }
+        }
+
+        /* Skip to main content (accessibility) */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: var(--clr-accent-green);
+            color: var(--clr-bg);
+            padding: var(--spacing-md);
+            z-index: 100;
+            text-decoration: none;
+            font-weight: var(--fw-semibold);
+        }
+
+        .skip-link:focus {
+            top: 0;
+        }
+    </style>
+</head>
+<body>
+    <a href="#main" class="skip-link">Skip to main content</a>
+
+    <main id="main" class="container">
+        <article class="profile-card" role="region" aria-label="User profile">
+            <!-- Avatar Section -->
+            <div class="avatar-container">
+                <div class="avatar" role="img" aria-label="Alina Yarychivska profile picture">👩‍💻</div>
+                <h1 class="profile-name">Яричівська Аліна</h1>
+                <p class="profile-username">@alinavska</p>
+                <p class="profile-bio">
+                    Веб-розробник | Дизайнер UI/UX | Закоханая у технології і інновації | Обожнюю читати 📚🚀
+                </p>
+            </div>
+
+            <!-- Stats Section -->
+            <div class="stats" aria-label="Profile statistics">
+                <div class="stat">
+                    <span class="stat-number" aria-label="followers">1.2K</span>
+                    <span class="stat-label">Підписники</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number" aria-label="following">456</span>
+                    <span class="stat-label">Слідкує</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number" aria-label="posts">89</span>
+                    <span class="stat-label">Пости</span>
+                </div>
+            </div>
+
+            <!-- Social Links Section -->
+            <section class="social-links" aria-label="Social media profiles">
+                <h2 class="social-links-title">Знайти мене в мережі</h2>
+                <div class="links-grid">
+                    <a href="https://facebook.com/alinavska" 
+                       class="social-btn facebook" 
+                       title="Visit Facebook profile"
+                       aria-label="Facebook">
+                        <span class="social-icon">f</span>
+                        <span class="social-name">Facebook</span>
+                    </a>
+                    <a href="https://twitter.com/alinavska" 
+                       class="social-btn twitter" 
+                       title="Visit Twitter profile"
+                       aria-label="Twitter">
+                        <span class="social-icon">𝕏</span>
+                        <span class="social-name">Twitter</span>
+                    </a>
+                    <a href="https://instagram.com/alinavska" 
+                       class="social-btn instagram" 
+                       title="Visit Instagram profile"
+                       aria-label="Instagram">
+                        <span class="social-icon">📷</span>
+                        <span class="social-name">Instagram</span>
+                    </a>
+                    <a href="https://linkedin.com/in/alinavska" 
+                       class="social-btn linkedin" 
+                       title="Visit LinkedIn profile"
+                       aria-label="LinkedIn">
+                        <span class="social-icon">in</span>
+                        <span class="social-name">LinkedIn</span>
+                    </a>
+                    <a href="https://github.com/alinavska" 
+                       class="social-btn github" 
+                       title="Visit GitHub profile"
+                       aria-label="GitHub">
+                        <span class="social-icon">⚙</span>
+                        <span class="social-name">GitHub</span>
+                    </a>
+                </div>
+            </section>
+
+            <!-- Action Buttons -->
+            <div class="action-buttons">
+                <button class="btn btn-primary" aria-label="Subscribe to Alina">
+                    Підписатися
+                </button>
+                <button class="btn btn-secondary" aria-label="Send message to Alina">
+                    Повідомити
+                </button>
+            </div>
+
+            <!-- About Section -->
+            <section class="about-section" aria-label="About">
+                <h2 class="section-title">Про мене</h2>
+                <div class="info-list">
+                    <div class="info-item">
+                        <span class="info-icon">📍</span>
+                        <span>Київ, Україна</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-icon">🌐</span>
+                        <a href="https://example.com" target="_blank" rel="noopener noreferrer">
+                            www.alinavska.com
+                        </a>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-icon">📅</span>
+                        <span>Учаснил з березня 2020</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-icon">✉️</span>
+                        <a href="mailto:alina@example.com">alina@example.com</a>
+                    </div>
+                </div>
+            </section>
+
+
+        </article>
+    </main>
+
+    <script>
+        // Enhanced interactivity
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add ripple effect to buttons
+            const buttons = document.querySelectorAll('.btn, .social-btn');
+            buttons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    const rect = this.getBoundingClientRect();
+                    const ripple = document.createElement('span');
+                    const size = Math.max(rect.width, rect.height);
+                    const x = e.clientX - rect.left - size / 2;
+                    const y = e.clientY - rect.top - size / 2;
+                    
+                    ripple.style.width = ripple.style.height = size + 'px';
+                    ripple.style.left = x + 'px';
+                    ripple.style.top = y + 'px';
+                });
+            });
+
+            // Keyboard navigation for social buttons
+            const socialBtns = document.querySelectorAll('.social-btn');
+            socialBtns.forEach((btn, index) => {
+                btn.addEventListener('keydown', function(e) {
+                    if (e.key === 'ArrowRight' && index < socialBtns.length - 1) {
+                        socialBtns[index + 1].focus();
+                    } else if (e.key === 'ArrowLeft' && index > 0) {
+                        socialBtns[index - 1].focus();
+                    }
+                });
+            });
+
+            // Add loading state feedback
+            buttons.forEach(button => {
+                button.addEventListener('mousedown', function() {
+                    this.style.transform = 'scale(0.98)';
+                });
+                button.addEventListener('mouseup', function() {
+                    this.style.transform = '';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
